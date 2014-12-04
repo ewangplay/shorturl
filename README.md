@@ -1,7 +1,7 @@
 # ShortURL
 
-[![Build Status](https://travis-ci.org/subosito/shorturl.png)](https://travis-ci.org/subosito/shorturl)
-[![GoDoc](https://godoc.org/github.com/subosito/shorturl?status.png)](https://godoc.org/github.com/subosito/shorturl)
+[![Build Status](https://travis-ci.org/ewangplay/shorturl.png)](https://travis-ci.org/ewangplay/shorturl)
+[![GoDoc](https://godoc.org/github.com/ewangplay/shorturl?status.png)](https://godoc.org/github.com/ewangplay/shorturl)
 
 Generic implementation for interacting with various URL shortening services in Go.
 
@@ -10,7 +10,7 @@ Generic implementation for interacting with various URL shortening services in G
 As usual you can install the package by issuing:
 
 ```bash
-$ go get github.com/subosito/shorturl
+$ go get github.com/ewangplay/shorturl
 ```
 
 ## Features
@@ -20,7 +20,7 @@ $ go get github.com/subosito/shorturl
 ShortURL provides simple API to shorten a long URL, here's how:
 
 ```go
-// import "github.com/subosito/shorturl"
+// import "github.com/ewangplay/shorturl"
 
 provider := "tinyurl"
 u, err := shorturl.Shorten("http://example.com/", provider)
@@ -32,7 +32,7 @@ if err == nil {
 Alternatively, you can initialize desired provider:
 
 ```go
-// import "github.com/subosito/shorturl/tinyurl"
+// import "github.com/ewangplay/shorturl/tinyurl"
 
 s := tinyurl.New()
 u, err := s.Shorten("http://example.com/")
@@ -46,7 +46,7 @@ if err == nil {
 ShortURL also provides simple API to expand short URL into its original long URL:
 
 ```go
-// import "github.com/subosito/shorturl"
+// import "github.com/ewangplay/shorturl"
 
 u, err := shorturl.Expand("http://bit.ly/13M3JX5")
 if err == nil {

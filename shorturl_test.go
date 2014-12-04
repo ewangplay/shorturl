@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-var Url string = "http://github.com/subosito/shorturl"
+var Url string = "http://github.com/ewangplay/shorturl"
 var ShortUrl string = "http://bit.ly/13M3JX5"
 
 func TestShortURL_Shorten(t *testing.T) {

@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-var Url string = "http://github.com/subosito/shorturl"
+var Url string = "http://github.com/ewangplay/shorturl"
 
 func TestMooURL(t *testing.T) {
 	s := New()

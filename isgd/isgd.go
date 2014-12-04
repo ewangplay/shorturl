@@ -2,7 +2,7 @@
 package isgd
 
 import (
-	"github.com/subosito/shorturl/base"
+	"github.com/ewangplay/shorturl/base"
 	"net/http"
 )
 
