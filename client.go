@@ -16,6 +16,7 @@ import (
 	"github.com/ewangplay/shorturl/snipurl"
 	"github.com/ewangplay/shorturl/tinyurl"
 	"github.com/ewangplay/shorturl/vamu"
+	"github.com/ewangplay/shorturl/sina"
 	"os"
 )
 
@@ -75,6 +76,10 @@ func (c *Client) Shorten(u string) ([]byte, error) {
 	case "catchy":
 		s := catchy.New()
 		return s.Shorten(u)
+    case "sina":
+        s := sina.New()
+        s.Params["source"] = os.Getenv("SINA_WEIBO_APP_KEY")
+        return s.Shorten(u)
 	}
 
 	err := errors.New("You should not see this :P")
