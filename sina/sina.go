@@ -2,6 +2,7 @@
 package sina
 
 import (
+    "fmt"
 	"encoding/json"
 	"github.com/ewangplay/shorturl/base"
 	"net/http"
@@ -9,13 +10,6 @@ import (
 
 type Sina struct {
 	*base.Service
-}
-
-type response struct {
-	UrlShort    string
-	UrlLong     string
-    Type        int
-	Result      bool
 }
 
 func New() *Sina {
@@ -43,11 +37,25 @@ func (s *Sina) Shorten(u string) ([]byte, error) {
 		return nil, err
 	}
 
-	r := &response{}
-	err = json.Unmarshal(b, r)
+    /*
+    新浪短链接服务器返回的数据格式如下:
+    {"urls":[
+    {"object_type":"","result":true,"url_short":"http://t.cn/RzlP1E0","object_id":"","url_long":"http://github.com/ewangplay/shorturl","type":0}
+    ]}
+    */
+    var result map[string][]map[string]interface{}
+
+	err = json.Unmarshal(b, &result)
 	if err != nil {
 		return nil, err
 	}
 
-	return []byte(r.UrlShort), nil
+    url_short, ok := result["urls"][0]["url_short"].(string)
+    if ok {
+        return []byte(url_short), nil
+    } else {
+        return nil, fmt.Errorf("invalid converted short url")
+    }
+    
+
 }
